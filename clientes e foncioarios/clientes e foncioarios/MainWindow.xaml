@@ -1,0 +1,43 @@
+﻿<Window x:Class="ViewChanger.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ViewChanger"
+        xmlns:viewmodels="clr-namespace:ViewChanger.ViewModels"
+        xmlns:views="clr-namespace:ViewChanger.Views"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="312.849" Width="745.95">
+    <Window.Resources>
+        <DataTemplate x:Name="cadastromodel" DataType="{x:Type viewmodels:cadastromobel}">
+            <views:RedView DataContext="{Binding}"/>
+        </DataTemplate>
+        
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Background="Gray" Grid.Row="0" Grid.Column="0" Grid.RowSpan="5">
+            <StackPanel>
+                <Button Content="cliente" Click="Cliente_Clicked"/>
+                <Button Content="funcionario" Click="foncionarios_Clicked"/>
+            </StackPanel>
+        </DockPanel>
+
+        
+        <ContentControl Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="5" Content="{Binding}"/>
+    </Grid>
+</Window>
